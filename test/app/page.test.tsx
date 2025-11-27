@@ -1,6 +1,6 @@
-import Home from "@/app/page";
-
 import { render, screen } from "@testing-library/react";
+
+import Home from "@/app/page";
 
 describe("Page", () => {
   it("should display the text \"Duo Forge\"", () => {

@@ -9,7 +9,7 @@ import importPlugin from "eslint-plugin-import-x";
 
 export default tseslint.config(
   {
-    ignores: [".next/**", "node_modules/**"],
+    ignores: [".next/**", "node_modules/**", "postcss.config.mjs", "commitlint.config.js", "coverage/**", "eslint.config.mjs"],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -123,7 +123,7 @@ export default tseslint.config(
       "import-x/exports-last": "error",
       "import-x/newline-after-import": "error",
       "import-x/no-default-export": "error",
-      "import-x/no-unused-modules": ["error", { "missingExports": true }, { unusedExports: true, ignoreExports: ["**/jest.setup.ts"] }],
+      // "import-x/no-unused-modules": ["error", { "missingExports": true , unusedExports: true, ignoreExports: ["**/jest.setup.ts"] }],
       "import-x/order": [
         "error",
         {
@@ -142,7 +142,7 @@ export default tseslint.config(
     },
   },
   {
-      files: ["src/**/page.tsx", "src/**/layout.tsx", "src/**/loading.tsx", "src/**/not-found.tsx"],
+      files: ["src/**/page.tsx", "src/**/layout.tsx", "src/**/loading.tsx", "src/**/not-found.tsx", "next.config.ts"],
       rules: { "import-x/no-default-export": "off" }
   },
   {

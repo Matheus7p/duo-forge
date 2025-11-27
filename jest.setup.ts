@@ -9,6 +9,6 @@ global.console = {
 };
 
 if (!AbortSignal.timeout) {
-  //@ts-ignore
+  // @ts-expect-error -- Polyfill for AbortSignal.timeout
   AbortSignal.timeout = jest.fn();
 }
