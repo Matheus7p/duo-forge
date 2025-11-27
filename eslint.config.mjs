@@ -123,7 +123,7 @@ export default tseslint.config(
       "import-x/exports-last": "error",
       "import-x/newline-after-import": "error",
       "import-x/no-default-export": "error",
-      "import-x/no-unused-modules": ["error", { "missingExports": true }],
+      "import-x/no-unused-modules": ["error", { "missingExports": true }, { unusedExports: true, ignoreExports: ["**/jest.setup.ts"] }],
       "import-x/order": [
         "error",
         {
