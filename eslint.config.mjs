@@ -74,6 +74,7 @@ export default tseslint.config(
       "@typescript-eslint/explicit-member-accessibility": "error",
       "@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }],
       "@typescript-eslint/no-inferrable-types": "off",
+      "import-x/no-unused-modules": "off",
       "@typescript-eslint/typedef": [
         "error",
         {
