@@ -18,6 +18,7 @@ const config = {
     "!src/**/**.response.ts",
     "!src/**/**.enum.ts",
     "!src/app/lib/**",
+    "!src/app/components/ui/**",
   ],
 
   coverageThreshold: {
