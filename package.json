@@ -10,7 +10,9 @@
     "test": "jest",
     "test:ci": "npm run lint && npm run test:coverage",
     "test:coverage": "jest --collect-coverage",
-    "prepare": "husky"
+    "prepare": "husky",
+    "db:push": "dotenv -e .env.local -- drizzle-kit push",
+    "db:studio": "dotenv -e .env.local -- drizzle-kit studio"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",
@@ -44,6 +46,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "dotenv": "^17.2.3",
+    "dotenv-cli": "^11.0.0",
     "drizzle-kit": "^0.31.7",
     "eslint": "^9.39.1",
     "eslint-config-next": "16.0.5",
