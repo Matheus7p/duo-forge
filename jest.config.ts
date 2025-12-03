@@ -31,6 +31,12 @@ const config = {
   },
 
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  moduleNameMapper: {
+    "^@/(.*)$": "<rootDir>/src/$1",
+  },
+  transformIgnorePatterns: [
+    "/node_modules/(?!(better-auth)/)",
+  ],
 
 };
 
