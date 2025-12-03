@@ -9,13 +9,13 @@ export const Header = ({ className, children }: IHeader): ReactNode => {
 };
 
 export const HeaderContent = ({ className, children }: IHeader): ReactNode => {
-  return (<header className={className}>{children}</header>);
+  return (<div className={className}>{children}</div>);
 };
 
 export const HeaderMenu = ({ className, children }: IHeader): ReactNode => {
-  return (<header className={className}>{children}</header>);
+  return (<div className={className}>{children}</div>);
 };
 
 export const HeaderLogo = ({ className, children }: IHeader): ReactNode => {
-  return (<header className={className}>{children}</header>);
+  return (<div className={className}>{children}</div>);
 };
