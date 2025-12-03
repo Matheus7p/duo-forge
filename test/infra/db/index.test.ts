@@ -1,33 +1,36 @@
-import { drizzle } from "drizzle-orm/node-postgres";
-import { Pool } from "pg";
+import { TextEncoder, TextDecoder } from "util";
 
+Object.assign(global, { TextDecoder, TextEncoder });
+const MOCK_DB_URL = "postgres://test-url-mock";
 
-jest.mock("pg", () => ({
-  Pool: jest.fn(),
+jest.mock("@/env", () => ({
+  env: {
+    POSTGRES_URL: MOCK_DB_URL, 
+  },
 }));
 
-jest.mock("drizzle-orm/node-postgres", () => ({
+jest.mock("@neondatabase/serverless", () => ({
+  neon: jest.fn(),
+}));
+
+jest.mock("drizzle-orm/neon-http", () => ({
   drizzle: jest.fn(),
-}));
-
-jest.mock("../../../src/env", () => ({
-  env: process.env,
 }));
 
 describe("Database Connection (index.ts)", () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    jest.resetModules();
   });
 
-  it("should initialize the connection pool with env variables", async () => {
-    // Act 
+  it("should initialize the connection using env variables", async () => {
+    // Act
     await import("@/infra/db/index");
+    const { neon } = await import("@neondatabase/serverless");
+    const { drizzle } = await import("drizzle-orm/neon-http");
 
-    // Assert 
-    expect(Pool).toHaveBeenCalledWith({
-      connectionString: process.env.POSTGRES_URL,
-    });
-    
+    // Assert
+    expect(neon).toHaveBeenCalledWith(MOCK_DB_URL);
     expect(drizzle).toHaveBeenCalled();
   });
 });
